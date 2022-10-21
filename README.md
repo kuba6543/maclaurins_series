@@ -1,6 +1,6 @@
 # Zadanie wybrane: nr 2
 
-Będę obliczał wzór:
+Program będzie aproksymował wartości dla funkcji:
 
 1. sin(x)
 2. cos(x)
