@@ -6,27 +6,32 @@ float x_start; // wartosc poczatkowa x
 float delta_x; // krok powiekszania x
 unsigned short k; // licznosc wykonywania operacji powiekszenia x_start o delta_x 
 unsigned short n; // liczba elementow szeregu potegowego Maclaurina
-float maclaurin_sin(float x_start,unsigned short n) // funkcja liczaca aproksymacje funkcji sin(x) w szeregu Maclaurina
+int factorial(int n) // funkcja liczaca silnie 
 {
-    float sum=0; // zmienna lokalna do sumowania i przedstawiania wyniku
-    int factorial=1; // silnia szeregu
-    for(unsigned short l=0;l<n+1;l++)
+    int sum=1; // zdefiniowanie w wypadku gdy trzeba policzyć 0!
+    for(n;n>0;n--)
     {
-        sum+= (pow(-1, l) * powf(x_start, 2l+1)) / factorial;
-        factorial *= 2*l+2;
-        factorial *= 2*l+3; // dodanie dwóch kolejnych elementów do silni
+        sum *= n;
     }
     return sum;
 }
-float maclaurin_cos(float x_start,unsigned short n) // funkcja liczaca aproksymacje funkcji cos(x) w szeregu Maclaurina
+float maclaurin_sin(float x,unsigned short n) // funkcja liczaca aproksymacje funkcji sin(x) w szeregu Maclaurina
 {
     float sum=0; // zmienna lokalna do sumowania i przedstawiania wyniku
-    int factorial=1; // silnia szeregu
+    float licznik; // równanie licznika szeregu
     for(unsigned short l=0;l<n+1;l++)
     {
-        sum+= (pow(-1, l) * powf(x_start, 2l)) / factorial;
-        factorial *= 2*l+1;
-        factorial *= 2*l+2; // dodanie dwóch kolejnych elementów do silni
+        licznik=powf(-1, l) * powf(x, 2l+1); // przepisanie równania do jednej z miennej w celu uniknięcia błędów
+        sum+= licznik / factorial(2l+1);
+    }
+    return sum;
+}
+float maclaurin_cos(float x,unsigned short n) // funkcja liczaca aproksymacje funkcji cos(x) w szeregu Maclaurina
+{
+    float sum=0; // zmienna lokalna do sumowania i przedstawiania wyniku
+    for(unsigned short l=0;l<n+1;l++)
+    {
+        sum+= (powf(-1, l) * powf(x, 2l)) / factorial(2l);
     }
     return sum;
 }
@@ -42,10 +47,8 @@ int main()
     scanf("%hd",&n);
     for(unsigned short i=0;i<k+1;i++)
     {
-        printf("Wartosc funkcji sin(x) dla %f wynosi: %f \n", x_start + i*delta_x,maclaurin_sin(x_start + i*delta_x, n));
-        printf("Wartosc funkcji cos(x) dla %f wynosi: %f \n", x_start + i*delta_x,maclaurin_cos(x_start + i*delta_x, n));
+        printf("Wartosc funkcji sin(x) dla %f wynosi: %f \n", x_start + i*delta_x, maclaurin_sin(x_start + i*delta_x, n));
+        printf("Wartosc funkcji cos(x) dla %f wynosi: %f \n", x_start + i*delta_x, maclaurin_cos(x_start + i*delta_x, n));
     }
-
-
     return 0;
 }
