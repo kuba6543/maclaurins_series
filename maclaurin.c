@@ -29,9 +29,11 @@ float maclaurin_sin(float x,unsigned short n) // funkcja liczaca aproksymacje fu
 float maclaurin_cos(float x,unsigned short n) // funkcja liczaca aproksymacje funkcji cos(x) w szeregu Maclaurina
 {
     float sum=0; // zmienna lokalna do sumowania i przedstawiania wyniku
+    float licznik; // równanie licznika szeregu
     for(unsigned short l=0;l<n+1;l++)
     {
-        sum+= (powf(-1, l) * powf(x, 2l)) / factorial(2l);
+        licznik=powf(-1, l) * powf(x, 2l+1); // przepisanie równania do jednej z miennej w celu uniknięcia błędów
+        sum+= licznik / factorial(2l);
     }
     return sum;
 }
