@@ -17,16 +17,16 @@ int factorial(int n) // function calculating factorial, used in the Maclaurin's/
 }
 float maclaurin_sin(float x,unsigned short n) // function used to approximate sin(x) using Maclaurin's series
 {
-    float sum=0; // sum of series' steps
+    float sum=0; // sum of series' elements
     for(unsigned short l=0;l<n+1;l++)
     {
-        sum+= (powf(-1, l) * powf(x, 2*l+1)) / factorial(2*l+1); //
+        sum+= (powf(-1, l) * powf(x, 2*l+1)) / factorial(2*l+1);
     }
     return sum;
 }
 float maclaurin_cos(float x,unsigned short n) // function used to approximate cos(x) using Maclaurin's series
 {
-     float sum=0; // sum of series' steps
+     float sum=0; // sum of series' elements
     for(unsigned short l=0;l<n+1;l++)
     {
         sum+= (powf(-1, l) * powf(x, 2*l)) / factorial(2*l);
@@ -39,9 +39,9 @@ int main()
     scanf("%f",&x_start);
     printf("Enter value of step:\n");
     scanf("%f",&delta_x);
-    printf("Enter quantity of steps:\n");
+    printf("Enter quantity of elements:\n");
     scanf("%hd",&k);
-    printf("Enter quantity of Maclaurin's Series' elements:\n");
+    printf("Enter quantity of Maclaurin's Series' elements:\n"); // inserting wrong value of any parameter will terminate the programme
     scanf("%hd",&n);
     for(unsigned short i=0;i<k+1;i++)
     {
