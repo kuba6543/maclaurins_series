@@ -1,6 +1,4 @@
-# Zadanie wybrane: nr 2 [PL/ENG below]
-
-## PL
+# Zadanie wybrane: nr 2
 
 Program będzie aproksymował wartości dla funkcji:
 
@@ -20,22 +18,31 @@ Program będzie aproksymował wartości dla funkcji:
 * maclaurin_sin(float) - liczy przybliżoną wartość sinusa dla argumentu x, używając n elementów szeregu
 * maclaurin_cos(float) - liczy przybliżoną wartość cosinusa dla argumentu x, używając n elementów szeregu
 
-## EN
+## Przykładowe dane wejściowe
 
-Programme wil be approximating functions written below:
-
-1. sin(x)
-2. cos(x)
-
-## Variables in programme:
-
-* x_start(float) - starting value of x
-* delta_x(float) - step of x in next iteration
-* k(unsigned short int) - quantity of iterations
-* n(unsigned short int) - quantity of elements of Maclaurin's series
-
-## Funkcje w programie:
-
-* factorial(int) - computing factorial of integer
-* maclaurin_sin(float) - computing approximate value of sin(x), using n elements of series
-* maclaurin_cos(float) - computing approximate value of cos(x), using n elements of series
+```
+gcc maclaurin.c -lm -o maclaurin
+./maclaurin
+Enter starting value:
+-1.5
+Enter value of step:
+0.5
+Enter quantity of elements:
+6
+Enter quantity of Maclaurin's Series' elements:
+9
+Value of function sin(x) for x = -1.500000 is: -0.997471 
+Value of function cos(x) for x = -1.500000 is: 0.070739 
+Value of function sin(x) for x = -1.000000 is: -0.841471 
+Value of function cos(x) for x = -1.000000 is: 0.540302 
+Value of function sin(x) for x = -0.500000 is: -0.479426 
+Value of function cos(x) for x = -0.500000 is: 0.877583 
+Value of function sin(x) for x = 0.000000 is: 0.000000 
+Value of function cos(x) for x = 0.000000 is: 1.000000 
+Value of function sin(x) for x = 0.500000 is: 0.479426 
+Value of function cos(x) for x = 0.500000 is: 0.877583 
+Value of function sin(x) for x = 1.000000 is: 0.841471 
+Value of function cos(x) for x = 1.000000 is: 0.540302 
+Value of function sin(x) for x = 1.500000 is: 0.997471 
+Value of function cos(x) for x = 1.500000 is: 0.070739
+```
