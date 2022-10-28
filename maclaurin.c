@@ -2,10 +2,6 @@
 #include <math.h>
 #include <stdlib.h> // required libraries
 
-float x_start; // starting value of x
-float delta_x; // step of x
-unsigned short k; // quantity of steps 
-unsigned short n; // quantity of Maclaurin's Series' elements
 int factorial(int n) // function calculating factorial, used in the Maclaurin's/Taylor's series
 {
     int sum=1; // defining function in case of 0!
@@ -23,6 +19,7 @@ float maclaurin_sin(float x,unsigned short n) // function used to approximate si
         sum+= (powf(-1, l) * powf(x, 2*l+1)) / factorial(2*l+1);
     }
     return sum;
+    
 }
 float maclaurin_cos(float x,unsigned short n) // function used to approximate cos(x) using Maclaurin's series
 {
@@ -35,6 +32,10 @@ float maclaurin_cos(float x,unsigned short n) // function used to approximate co
 }
 int main() 
 {
+    float x_start; // starting value of x
+    float delta_x; // step of x
+    unsigned short k; // quantity of steps 
+    unsigned short n; // quantity of Maclaurin's Series' elements
     printf("Enter starting value:\n");
     scanf("%f",&x_start);
     printf("Enter value of step:\n");
