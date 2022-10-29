@@ -56,8 +56,8 @@ int main()
     }
     for(unsigned short i=0;i<quantity_of_steps+1;i++)
     {
-        printf("Value of function sin(x) for x = %f is: %f \n", x_start + i*delta_x, maclaurin_sin(x_start + i*delta_x, number_of_elements));
-        printf("Value of function cos(x) for x = %f is: %f \n", x_start + i*delta_x, maclaurin_cos(x_start + i*delta_x, number_of_elements));
+        printf("Value of function sin(x) for x = %.3f is: %.4f \n", x_start + i*delta_x, maclaurin_sin(x_start + i*delta_x, number_of_elements));
+        printf("Value of function cos(x) for x = %.3f is: %.4f \n", x_start + i*delta_x, maclaurin_cos(x_start + i*delta_x, number_of_elements));
     }
     return 0;
 }
