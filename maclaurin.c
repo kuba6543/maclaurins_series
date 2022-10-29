@@ -1,19 +1,23 @@
-#include <stdio.h>
-#include <math.h>
-#include <stdlib.h> // required libraries
+// Jakub Bartuszek, 318490
+// Oświadczam, że program został wykonany samodzielnie
 
-int factorial(int n) // function calculating factorial, used in the Maclaurin's/Taylor's series
+// reqired libraries
+#include <stdio.h>  // standard I/O
+#include <math.h>   // more advanced math eqations
+#include <stdlib.h> // standard library
+
+unsigned int factorial(unsigned int n)  // function calculating factorial, used in the Maclaurin's series
 {
-    int sum=1; // defining function in case of 0!
+    unsigned int sum=1;                 // defining function in case of 0!
     for(n;n>0;n--)
     {
         sum *= n;
     }
     return sum;
 }
-float maclaurin_sin(float x,unsigned short n) // function used to approximate sin(x) using Maclaurin's series
+float maclaurin_sin(float x,unsigned short n)   // function used to approximate sin(x) using Maclaurin's series
 {
-    float sum=0; // sum of series' elements
+    float sum=0;                                // sum of series' elements
     for(unsigned short l=0;l<n+1;l++)
     {
         sum+= (powf(-1, l) * powf(x, 2*l+1)) / factorial(2*l+1);
@@ -21,9 +25,9 @@ float maclaurin_sin(float x,unsigned short n) // function used to approximate si
     return sum;
     
 }
-float maclaurin_cos(float x,unsigned short n) // function used to approximate cos(x) using Maclaurin's series
+float maclaurin_cos(float x,unsigned short n)   // function used to approximate cos(x) using Maclaurin's series
 {
-     float sum=0; // sum of series' elements
+     float sum=0;                               // sum of series' elements
     for(unsigned short l=0;l<n+1;l++)
     {
         sum+= (powf(-1, l) * powf(x, 2*l)) / factorial(2*l);
@@ -32,22 +36,28 @@ float maclaurin_cos(float x,unsigned short n) // function used to approximate co
 }
 int main() 
 {
-    float x_start; // starting value of x
-    float delta_x; // step of x
-    unsigned short k; // quantity of steps 
-    unsigned short n; // quantity of Maclaurin's Series' elements
+    float x_start;                      // starting value of x
+    float delta_x;                      // step of x
+    unsigned short quantity_of_steps;   // quantity of steps 
+    unsigned short number_of_elements;  // quantity of Maclaurin's Series' elements
+
     printf("Enter starting value:\n");
     scanf("%f",&x_start);
     printf("Enter value of step:\n");
     scanf("%f",&delta_x);
     printf("Enter quantity of elements:\n");
-    scanf("%hd",&k);
-    printf("Enter quantity of Maclaurin's Series' elements:\n"); // inserting wrong value of any parameter will terminate the programme
-    scanf("%hd",&n);
-    for(unsigned short i=0;i<k+1;i++)
+    scanf("%hd",&quantity_of_steps);
+    printf("Enter quantity of Maclaurin's Series' elements:\n");
+    scanf("%hd",&number_of_elements);
+    if (sizeof(x_start)!=4||sizeof(delta_x)!=4||sizeof(quantity_of_steps)!=2||sizeof(number_of_elements)!=2)
     {
-        printf("Value of function sin(x) for x = %f is: %f \n", x_start + i*delta_x, maclaurin_sin(x_start + i*delta_x, n));
-        printf("Value of function cos(x) for x = %f is: %f \n", x_start + i*delta_x, maclaurin_cos(x_start + i*delta_x, n));
+        printf("Wrong input, you should use only numbers!"); // float has size of 4 bytes,unsigned short - 2, char - 1
+        return 1;
+    }
+    for(unsigned short i=0;i<quantity_of_steps+1;i++)
+    {
+        printf("Value of function sin(x) for x = %f is: %f \n", x_start + i*delta_x, maclaurin_sin(x_start + i*delta_x, number_of_elements));
+        printf("Value of function cos(x) for x = %f is: %f \n", x_start + i*delta_x, maclaurin_cos(x_start + i*delta_x, number_of_elements));
     }
     return 0;
 }
