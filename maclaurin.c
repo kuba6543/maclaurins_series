@@ -1,7 +1,7 @@
 // Jakub Bartuszek, 318490
 // Oświadczam, że program został wykonany samodzielnie
 
-// reqired libraries
+                    // reqired libraries
 #include <stdio.h>  // standard I/O
 #include <math.h>   // more advanced math eqations
 #include <stdlib.h> // standard library
