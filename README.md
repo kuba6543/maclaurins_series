@@ -1,24 +1,26 @@
 # Zadanie wybrane: nr 2
 
-Program będzie aproksymował wartości dla funkcji:
+## Description of programme:
+
+Programme will be approximating functions written below:
 
 1. sin(x)
 2. cos(x)
 
-## Zmienne w programie:
+## Variables in programme:
 
-* x_start(float) - wartość początkowa x w algorytmie
-* delta_x(float) - krok x w kolejnej iteracji
-* k(unsigned short int) - ilość kroków
-* n(unsigned short int) - ilość elementów szeregu Maclaurina
+* x_start (float) - starting value of x
+* delta_x (float) - step of x in one iteration
+* quantity_of_steps (unsigned short int) - number of steps
+* number_of_elements (unsigned short int) - number of Maclaurin's series' elements
 
-## Funkcje w programie:
+## Functions in programme:
 
-* factorial(int) - liczy silnię dla danej liczby - niezbędny element szeregu Maclaurina
-* maclaurin_sin(float) - liczy przybliżoną wartość sinusa dla argumentu x, używając n elementów szeregu
-* maclaurin_cos(float) - liczy przybliżoną wartość cosinusa dla argumentu x, używając n elementów szeregu
+* factorial(int) - calculates the value of factorial
+* maclaurin_sin(float x, unsigned short int n) - calculates approximate value of sin(x), using n series' elements
+* maclaurin_cos(float x, unsigned short int n) - calculates approximate value of cos(x), using n series' elements
 
-## Przykładowe dane wejściowe
+## Examplary input and output: 
 
 ```
 gcc maclaurin.c -lm -o maclaurin
@@ -31,18 +33,18 @@ Enter quantity of elements:
 6
 Enter quantity of Maclaurin's Series' elements:
 9
-Value of function sin(x) for x = -1.500000 is: -0.997471 
-Value of function cos(x) for x = -1.500000 is: 0.070739 
-Value of function sin(x) for x = -1.000000 is: -0.841471 
-Value of function cos(x) for x = -1.000000 is: 0.540302 
-Value of function sin(x) for x = -0.500000 is: -0.479426 
-Value of function cos(x) for x = -0.500000 is: 0.877583 
-Value of function sin(x) for x = 0.000000 is: 0.000000 
-Value of function cos(x) for x = 0.000000 is: 1.000000 
-Value of function sin(x) for x = 0.500000 is: 0.479426 
-Value of function cos(x) for x = 0.500000 is: 0.877583 
-Value of function sin(x) for x = 1.000000 is: 0.841471 
-Value of function cos(x) for x = 1.000000 is: 0.540302 
-Value of function sin(x) for x = 1.500000 is: 0.997471 
-Value of function cos(x) for x = 1.500000 is: 0.070739
+Value of function sin(x) for x = -1.500 is: -0.9975 
+Value of function cos(x) for x = -1.500 is: 0.0707
+Value of function sin(x) for x = -1.000 is: -0.8415 
+Value of function cos(x) for x = -1.000 is: 0.5403
+Value of function sin(x) for x = -0.500 is: -0.4794
+Value of function cos(x) for x = -0.500 is: 0.8776
+Value of function sin(x) for x = 0.000 is: 0.0000
+Value of function cos(x) for x = 0.000 is: 1.0000 
+Value of function sin(x) for x = 0.500 is: 0.4794
+Value of function cos(x) for x = 0.500 is: 0.8776
+Value of function sin(x) for x = 1.000 is: 0.8415
+Value of function cos(x) for x = 1.000 is: 0.5403 
+Value of function sin(x) for x = 1.500 is: 0.9975
+Value of function cos(x) for x = 1.500 is: 0.0707
 ```
