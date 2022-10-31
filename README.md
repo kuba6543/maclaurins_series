@@ -31,7 +31,7 @@ Enter value of step:
 0.5
 Enter quantity of elements:
 6
-Enter quantity of Maclaurin's Series' elements:
+Enter quantity of Maclaurin's Series' elements (use less than 30, higher values will overflow the factorial):
 9
 Value of function sin(x) for x = -1.500 is: -0.9975 
 Value of function cos(x) for x = -1.500 is: 0.0707
