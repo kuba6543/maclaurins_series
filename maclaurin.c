@@ -6,9 +6,9 @@
 #include <math.h>   // more advanced math eqations
 #include <stdlib.h> // standard library
 
-unsigned int factorial(unsigned int n)  // function calculating factorial, used in the Maclaurin's series
+unsigned long long factorial(unsigned int n)  // function calculating factorial, used in the Maclaurin's series
 {
-    unsigned int sum=1;                 // defining function in case of 0!
+    unsigned long long sum=1;                 // defining function in case of 0!
     for(n;n>0;n--)
     {
         sum *= n;
@@ -47,11 +47,11 @@ int main()
     scanf("%f",&delta_x);
     printf("Enter quantity of elements:\n");
     scanf("%hd",&quantity_of_steps);
-    printf("Enter quantity of Maclaurin's Series' elements:\n");
+    printf("Enter quantity of Maclaurin's Series' elements (use less than 30, higher values will overflow the factorial):\n");
     scanf("%hd",&number_of_elements);
-    if (sizeof(x_start)!=4||sizeof(delta_x)!=4||sizeof(quantity_of_steps)!=2||sizeof(number_of_elements)!=2)
+    if (sizeof(x_start)!=4||sizeof(delta_x)!=4||sizeof(quantity_of_steps)!=2||sizeof(number_of_elements)!=2||number_of_elements>30)
     {
-        printf("Wrong input, you should use only numbers!"); // float has size of 4 bytes,unsigned short - 2, char - 1
+        printf("Wrong input!"); // float has size of 4 bytes,unsigned short - 2, char - 1
         return 1;
     }
     for(unsigned short i=0;i<quantity_of_steps+1;i++)
