@@ -1,5 +1,3 @@
-# Zadanie wybrane: nr 2
-
 ## Description of programme:
 
 Programme will be approximating functions written below:
